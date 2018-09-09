@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
+import Routes from './routes'
 
 const App = () => {
     return (
-      <h1>HELLO</h1>
+      <Routes />
     )
 }
 
