@@ -3,6 +3,7 @@ const morgan = require('morgan')
 const path = require('path')
 const bodyParser = require('body-parser')
 const PORT = process.env.PORT || 3000
+const db = require('./db')
 const app = express()
 
 const createApp = () => {
@@ -36,8 +37,10 @@ const startListening = () => {
   })
 }
 
+const syncDb = () => db.sync({force: true})
 
 async function bootApp() {
+  await syncDb()
   await createApp()
   await startListening()
 }
